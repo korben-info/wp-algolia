@@ -94,7 +94,7 @@ abstract class Algolia_Posts_Index_Abstract extends Algolia_Index
         $shared_attributes                        = [];
         $shared_attributes['post_id']             = $post->ID;
         $shared_attributes['post_type']           = $post->post_type;
-        $shared_attributes['post_type_label']     = $this->get_post_label_attributes();
+        $shared_attributes['post_type_label']     = $this->get_post_label_attributes($post);
         $shared_attributes['post_title']          = $post->post_title;
         $shared_attributes['post_excerpt']        = apply_filters('the_excerpt', $post->post_excerpt);
         $shared_attributes['post_date']           = get_post_time('U', false, $post);

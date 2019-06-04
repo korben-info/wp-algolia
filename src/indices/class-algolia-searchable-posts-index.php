@@ -74,31 +74,31 @@ final class Algolia_Searchable_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_settings()
     {
-        $settings = array(
-            'attributesToIndex'     => array(
+        $settings = [
+            'attributesToIndex'     => [
                 'unordered(post_title)',
                 'unordered(taxonomies)',
                 'unordered(content)',
-            ),
-            'customRanking'         => array(
+            ],
+            'customRanking'         => [
                 'desc(is_sticky)',
                 'desc(post_date)',
                 'asc(record_index)',
-            ),
+            ],
             'attributeForDistinct'  => 'post_id',
             'distinct'              => true,
-            'attributesForFaceting' => array(
+            'attributesForFaceting' => [
                 'taxonomies',
                 'taxonomies_hierarchical',
                 'post_author.display_name',
                 'post_type_label',
-            ),
-            'attributesToSnippet'   => array(
+            ],
+            'attributesToSnippet'   => [
                 'post_title:30',
                 'content:30',
-            ),
+            ],
             'snippetEllipsisText'   => '…',
-        );
+        ];
 
         $settings = (array) apply_filters('algolia_searchable_posts_index_settings', $settings);
 
@@ -110,7 +110,7 @@ final class Algolia_Searchable_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_synonyms()
     {
-        $synonyms = (array) apply_filters('algolia_searchable_posts_index_synonyms', array());
+        $synonyms = (array) apply_filters('algolia_searchable_posts_index_synonyms', []);
 
         return $synonyms;
     }
@@ -150,16 +150,14 @@ final class Algolia_Searchable_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_re_index_items_count()
     {
-        $query = new WP_Query(
-            array(
-                'post_type'              => $this->post_types,
-                'post_status'            => 'any', // Let the `should_index` take care of the filtering.
-                'suppress_filters'       => true,
-                'cache_results'          => false,
-                'lazy_load_term_meta'    => false,
-                'update_post_term_cache' => false,
-            )
-        );
+        $query = new WP_Query([
+            'post_type'              => $this->post_types,
+            'post_status'            => 'any', // Let the `should_index` take care of the filtering.
+            'suppress_filters'       => true,
+            'cache_results'          => false,
+            'lazy_load_term_meta'    => false,
+            'update_post_term_cache' => false,
+        ]);
 
         return (int) $query->found_posts;
     }
@@ -172,20 +170,18 @@ final class Algolia_Searchable_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_items($page, $batch_size)
     {
-        $query = new WP_Query(
-            array(
-                'post_type'              => $this->post_types,
-                'posts_per_page'         => $batch_size,
-                'post_status'            => 'any',
-                'order'                  => 'ASC',
-                'orderby'                => 'ID',
-                'paged'                  => $page,
-                'suppress_filters'       => true,
-                'cache_results'          => false,
-                'lazy_load_term_meta'    => false,
-                'update_post_term_cache' => false,
-            )
-        );
+        $query = new WP_Query([
+            'post_type'              => $this->post_types,
+            'posts_per_page'         => $batch_size,
+            'post_status'            => 'any',
+            'order'                  => 'ASC',
+            'orderby'                => 'ID',
+            'paged'                  => $page,
+            'suppress_filters'       => true,
+            'cache_results'          => false,
+            'lazy_load_term_meta'    => false,
+            'update_post_term_cache' => false,
+        ]);
 
         return $query->posts;
     }
