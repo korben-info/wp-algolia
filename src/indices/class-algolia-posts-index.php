@@ -78,30 +78,30 @@ final class Algolia_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_settings()
     {
-        $settings = array(
-            'attributesToIndex'     => array(
+        $settings = [
+            'attributesToIndex'     => [
                 'unordered(post_title)',
                 'unordered(taxonomies)',
                 'unordered(content)',
-            ),
-            'customRanking'         => array(
+            ],
+            'customRanking'         => [
                 'desc(is_sticky)',
                 'desc(post_date)',
                 'asc(record_index)',
-            ),
+            ],
             'attributeForDistinct'  => 'post_id',
             'distinct'              => true,
-            'attributesForFaceting' => array(
+            'attributesForFaceting' => [
                 'taxonomies',
                 'taxonomies_hierarchical',
                 'post_author.display_name',
-            ),
-            'attributesToSnippet'   => array(
+            ],
+            'attributesToSnippet'   => [
                 'post_title:30',
                 'content:30',
-            ),
+            ],
             'snippetEllipsisText'   => '…',
-        );
+        ];
 
         $settings = (array) apply_filters('algolia_posts_index_settings', $settings, $this->post_type);
         $settings = (array) apply_filters('algolia_posts_' . $this->post_type . '_index_settings', $settings);
@@ -114,7 +114,7 @@ final class Algolia_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_synonyms()
     {
-        $synonyms = (array) apply_filters('algolia_posts_index_synonyms', array(), $this->post_type);
+        $synonyms = (array) apply_filters('algolia_posts_index_synonyms', [], $this->post_type);
         $synonyms = (array) apply_filters('algolia_posts_' . $this->post_type . '_index_synonyms', $synonyms);
 
         return $synonyms;
@@ -155,13 +155,11 @@ final class Algolia_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_re_index_items_count()
     {
-        $query = new WP_Query(
-            array(
-                'post_type'        => $this->post_type,
-                'post_status'      => 'any', // Let the `should_index` take care of the filtering.
-                'suppress_filters' => true,
-            )
-        );
+        $query = new WP_Query([
+            'post_type'        => $this->post_type,
+            'post_status'      => 'any', // Let the `should_index` take care of the filtering.
+            'suppress_filters' => true,
+        ]);
 
         return (int) $query->found_posts;
     }
@@ -174,17 +172,15 @@ final class Algolia_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function get_items($page, $batch_size)
     {
-        $query = new WP_Query(
-            array(
-                'post_type'        => $this->post_type,
-                'posts_per_page'   => $batch_size,
-                'post_status'      => 'any',
-                'order'            => 'ASC',
-                'orderby'          => 'ID',
-                'paged'            => $page,
-                'suppress_filters' => true,
-            )
-        );
+        $query = new WP_Query([
+            'post_type'        => $this->post_type,
+            'posts_per_page'   => $batch_size,
+            'post_status'      => 'any',
+            'order'            => 'ASC',
+            'orderby'          => 'ID',
+            'paged'            => $page,
+            'suppress_filters' => true,
+        ]);
 
         return $query->posts;
     }

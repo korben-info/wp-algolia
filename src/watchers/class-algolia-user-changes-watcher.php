@@ -21,20 +21,20 @@ class Algolia_User_Changes_Watcher implements Algolia_Changes_Watcher
     public function watch()
     {
         // Fires immediately after an existing user is updated.
-        add_action('profile_update', array( $this, 'sync_item' ));
+        add_action('profile_update', [$this, 'sync_item']);
 
         // Fires immediately after a new user is registered.
-        add_action('user_register', array( $this, 'sync_item' ));
+        add_action('user_register', [$this, 'sync_item']);
 
         // Fires immediately before a user is deleted.
-        add_action('delete_user', array( $this, 'delete_item' ));
+        add_action('delete_user', [$this, 'delete_item']);
 
         // Fires once a post has been saved.
-        add_action('save_post', array( $this, 'on_save_post' ), 10, 2);
+        add_action('save_post', [$this, 'on_save_post'], 10, 2);
 
         // Fires before a post is deleted, at the start of wp_delete_post().
         // At this stage the post metas are still available, and we need them.
-        add_action('before_delete_post', array( $this, 'on_delete_post' ));
+        add_action('before_delete_post', [$this, 'on_delete_post']);
     }
 
     /**

@@ -66,10 +66,10 @@ abstract class Algolia_Posts_Index_Abstract extends Algolia_Index
         $parts        = Algolia_Utils::explode_content($post_content);
 
         if (defined('ALGOLIA_SPLIT_POSTS') && false === ALGOLIA_SPLIT_POSTS) {
-            $parts = array( array_shift($parts) );
+            $parts = [array_shift($parts)];
         }
 
-        $records = array();
+        $records = [];
         foreach ($parts as $i => $part) {
             $record                 = $shared_attributes;
             $record['objectID']     = $this->get_post_object_id($post->ID, $i);
@@ -105,12 +105,12 @@ abstract class Algolia_Posts_Index_Abstract extends Algolia_Index
 
         $author = get_userdata($post->post_author);
         if ($author) {
-            $shared_attributes['post_author'] = array(
+            $shared_attributes['post_author'] = [
                 'user_id'      => (int) $post->post_author,
                 'display_name' => $author->display_name,
                 'user_url'     => $author->user_url,
                 'user_login'   => $author->user_login,
-            );
+            ];
         }
 
         $shared_attributes['images'] = Algolia_Utils::get_post_images($post->ID);
@@ -121,11 +121,11 @@ abstract class Algolia_Posts_Index_Abstract extends Algolia_Index
         // Push all taxonomies by default, including custom ones.
         $taxonomy_objects = get_object_taxonomies($post->post_type, 'objects');
 
-        $shared_attributes['taxonomies']              = array();
-        $shared_attributes['taxonomies_hierarchical'] = array();
+        $shared_attributes['taxonomies']              = [];
+        $shared_attributes['taxonomies_hierarchical'] = [];
         foreach ($taxonomy_objects as $taxonomy) {
             $terms = wp_get_object_terms($post->ID, $taxonomy->name);
-            $terms = is_array($terms) ? $terms : array();
+            $terms = is_array($terms) ? $terms : [];
 
             if ($taxonomy->hierarchical) {
                 $hierarchical_taxonomy_values = Algolia_Utils::get_taxonomy_tree($terms, $taxonomy->name);
@@ -198,7 +198,7 @@ abstract class Algolia_Posts_Index_Abstract extends Algolia_Index
         $this->assert_is_supported($item);
 
         $records_count = $this->get_post_records_count($item->ID);
-        $object_ids    = array();
+        $object_ids    = [];
         for ($i = 0; $i < $records_count; $i++) {
             $object_ids[] = $this->get_post_object_id($item->ID, $i);
         }

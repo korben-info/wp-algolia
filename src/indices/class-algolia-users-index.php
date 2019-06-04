@@ -39,7 +39,7 @@ final class Algolia_Users_Index extends Algolia_Index
      */
     protected function get_records($item)
     {
-        $record                 = array();
+        $record                 = [];
         $record['objectID']     = $item->ID;
         $record['user_id']      = $item->ID;
         $record['display_name'] = $item->display_name;
@@ -56,9 +56,9 @@ final class Algolia_Users_Index extends Algolia_Index
         if (function_exists('get_avatar_url')) {
             $record['avatar_url'] = get_avatar_url(
                 $item->ID,
-                array(
+                [
                     'size' => $avatar_size,
-                )
+                ]
             );
         } else {
             $email_hash           = md5(strtolower(trim($item->user_email)));
@@ -67,7 +67,7 @@ final class Algolia_Users_Index extends Algolia_Index
 
         $record = (array) apply_filters('algolia_user_record', $record, $item);
 
-        return array( $record );
+        return [$record];
     }
 
     /**
@@ -85,14 +85,14 @@ final class Algolia_Users_Index extends Algolia_Index
      */
     protected function get_settings()
     {
-        $settings = array(
-            'attributesToIndex' => array(
+        $settings = [
+            'attributesToIndex' => [
                 'unordered(display_name)',
-            ),
-            'customRanking'     => array(
+            ],
+            'customRanking'     => [
                 'desc(posts_count)',
-            ),
-        );
+            ],
+        ];
 
         return (array) apply_filters('algolia_users_index_settings', $settings);
     }
@@ -102,7 +102,7 @@ final class Algolia_Users_Index extends Algolia_Index
      */
     protected function get_synonyms()
     {
-        return (array) apply_filters('algolia_users_index_synonyms', array());
+        return (array) apply_filters('algolia_users_index_synonyms', []);
     }
 
     /**
@@ -124,12 +124,12 @@ final class Algolia_Users_Index extends Algolia_Index
     {
         $offset = $batch_size * ( $page - 1 );
 
-        $args = array(
+        $args = [
             'order'   => 'ASC',
             'orderby' => 'ID',
             'offset'  => $offset,
             'number'  => $batch_size,
-        );
+        ];
 
         // We use prior to 4.5 syntax for BC purposes, no `paged` arg.
         return get_users($args);
@@ -152,11 +152,11 @@ final class Algolia_Users_Index extends Algolia_Index
 
     public function get_default_autocomplete_config()
     {
-        $config = array(
+        $config = [
             'position'        => 30,
             'max_suggestions' => 3,
             'tmpl_suggestion' => 'autocomplete-user-suggestion',
-        );
+        ];
 
         return array_merge(parent::get_default_autocomplete_config(), $config);
     }

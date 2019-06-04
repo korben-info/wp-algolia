@@ -21,13 +21,13 @@ class Algolia_Term_Changes_Watcher implements Algolia_Changes_Watcher
     public function watch()
     {
         // Fires immediately after the given terms are edited.
-        add_action('edited_term', array( $this, 'sync_item' ));
+        add_action('edited_term', [$this, 'sync_item']);
 
         // Fires after an object's terms have been set.
-        add_action('set_object_terms', array( $this, 'handle_changes' ), 10, 6);
+        add_action('set_object_terms', [$this, 'handle_changes'], 10, 6);
 
         // Fires after a term is deleted from the database and the cache is cleaned.
-        add_action('delete_term', array( $this, 'on_delete_term' ), 10, 4);
+        add_action('delete_term', [$this, 'on_delete_term'], 10, 4);
     }
 
     /**

@@ -46,7 +46,17 @@ class Algolia_Index_Replica
      */
     public function get_ranking()
     {
-        return array( $this->order . '(' . $this->attribute_name . ')', 'typo', 'geo', 'words', 'filters', 'proximity', 'attribute', 'exact', 'custom' );
+        return [
+            "{$this->order}({$this->attribute_name})",
+            'typo',
+            'geo',
+            'words',
+            'filters',
+            'proximity',
+            'attribute',
+            'exact',
+            'custom'
+        ];
     }
 
     /**

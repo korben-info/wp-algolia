@@ -93,16 +93,16 @@ class Algolia_API
         // This will raise an exception.
         $key = $client->getApiKey((string) $api_key);
 
-        $required_acls = array(
+        $required_acls = [
             'addObject',
             'deleteObject',
             'listIndexes',
             'deleteIndex',
             'settings',
             'editSettings',
-        );
+        ];
 
-        $missing_acls = array();
+        $missing_acls = [];
         foreach ($required_acls as $required_acl) {
             if (! in_array($required_acl, $key['acl'])) {
                 $missing_acls[] = $required_acl;

@@ -39,11 +39,11 @@ class Algolia_Utils
 
     /**
      * Returns an array like:
-     * array(
+     * [
      *    'lvl0' => ['Sales', 'Marketing'],
      *    'lvl1' => ['Sales > Strategies', 'Marketing > Tips & Tricks']
      *    ...
-     * );.
+     * ]
      *
      * This is useful when building hierarchical menus.
      *
@@ -59,13 +59,13 @@ class Algolia_Utils
     {
         $term_ids = wp_list_pluck($terms, 'term_id');
 
-        $parents = array();
+        $parents = [];
         foreach ($term_ids as $term_id) {
             $path      = self::get_term_parents($term_id, $taxonomy, $separator);
             $parents[] = rtrim($path, $separator);
         }
 
-        $terms = array();
+        $terms = [];
         foreach ($parents as $parent) {
             $levels = explode($separator, $parent);
 
@@ -90,7 +90,7 @@ class Algolia_Utils
      */
     public static function get_post_images($post_id)
     {
-        $images = array();
+        $images = [];
 
         if (get_post_type($post_id) === 'attachment') {
             $post_thumbnail_id = (int) $post_id;
@@ -99,18 +99,18 @@ class Algolia_Utils
         }
 
         if ($post_thumbnail_id) {
-            $sizes = (array) apply_filters('algolia_post_images_sizes', array( 'thumbnail' ));
+            $sizes = (array) apply_filters('algolia_post_images_sizes', ['thumbnail']);
             foreach ($sizes as $size) {
                 $info = wp_get_attachment_image_src($post_thumbnail_id, $size);
                 if (! $info) {
                     continue;
                 }
 
-                $images[ $size ] = array(
+                $images[$size] = [
                     'url'    => $info[0],
                     'width'  => $info[1],
                     'height' => $info[2],
-                );
+                ];
             }
         }
 
@@ -126,7 +126,7 @@ class Algolia_Utils
 
     public static function remove_content_noise($content)
     {
-        $noise_patterns = array(
+        $noise_patterns = [
             // strip out comments.
             "'<!--(.*?)-->'is",
             // strip out cdata.
@@ -144,7 +144,7 @@ class Algolia_Utils
             // strip out <pre> tags.
             "'<\s*pre[^>]*[^/]>(.*?)<\s*/\s*pre\s*>'is",
             "'<\s*pre\s*>(.*?)<\s*/\s*pre\s*>'is",
-        );
+        ];
 
         // If there is ET builder (Divi), remove shortcodes.
         if (function_exists('et_pb_is_pagebuilder_used')) {
@@ -172,7 +172,7 @@ class Algolia_Utils
             $max_size = (int) ALGOLIA_CONTENT_MAX_SIZE;
         }
 
-        $parts  = array();
+        $parts  = [];
         $prefix = '';
         while (true) {
             $content = trim((string) $content);

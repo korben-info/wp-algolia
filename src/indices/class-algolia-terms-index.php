@@ -53,7 +53,7 @@ final class Algolia_Terms_Index extends Algolia_Index
      */
     protected function get_records($item)
     {
-        $record                = array();
+        $record                = [];
         $record['objectID']    = $item->term_id;
         $record['term_id']     = $item->term_id;
         $record['taxonomy']    = $item->taxonomy;
@@ -70,7 +70,7 @@ final class Algolia_Terms_Index extends Algolia_Index
         $record = (array) apply_filters('algolia_term_record', $record, $item);
         $record = (array) apply_filters('algolia_term_' . $item->taxonomy . '_record', $record, $item);
 
-        return array( $record );
+        return [$record];
     }
 
     /**
@@ -86,15 +86,15 @@ final class Algolia_Terms_Index extends Algolia_Index
      */
     protected function get_settings()
     {
-        $settings = array(
-            'attributesToIndex' => array(
+        $settings = [
+            'attributesToIndex' => [
                 'unordered(name)',
                 'unordered(description)',
-            ),
-            'customRanking'     => array(
+            ],
+            'customRanking'     => [
                 'desc(posts_count)',
-            ),
-        );
+            ],
+        ];
 
         $settings = (array) apply_filters('algolia_terms_index_settings', $settings, $this->taxonomy);
         $settings = (array) apply_filters('algolia_terms_' . $this->taxonomy . '_index_settings', $settings);
@@ -107,7 +107,7 @@ final class Algolia_Terms_Index extends Algolia_Index
      */
     protected function get_synonyms()
     {
-        return (array) apply_filters('algolia_terms_index_synonyms', array());
+        return (array) apply_filters('algolia_terms_index_synonyms', []);
     }
 
     /**
@@ -129,13 +129,13 @@ final class Algolia_Terms_Index extends Algolia_Index
     {
         $offset = $batch_size * ( $page - 1 );
 
-        $args = array(
+        $args = [
             'order'      => 'ASC',
             'orderby'    => 'id',
             'offset'     => $offset,
             'number'     => $batch_size,
             'hide_empty' => false, // Let users choose what to index.
-        );
+        ];
 
         // We use prior to 4.5 syntax for BC purposes.
         return get_terms($this->taxonomy, $args);
@@ -161,11 +161,11 @@ final class Algolia_Terms_Index extends Algolia_Index
 
     public function get_default_autocomplete_config()
     {
-        $config = array(
+        $config = [
             'position'        => 20,
             'max_suggestions' => 3,
             'tmpl_suggestion' => 'autocomplete-term-suggestion',
-        );
+        ];
 
         return array_merge(parent::get_default_autocomplete_config(), $config);
     }

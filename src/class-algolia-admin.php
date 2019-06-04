@@ -128,10 +128,10 @@ class Algolia_Admin
             }
             ob_end_clean();
 
-            $response = array(
+            $response = [
                 'totalPagesCount' => $total_pages,
                 'finished'        => $page >= $total_pages,
-            );
+            ];
 
             wp_send_json($response);
         } catch (\Exception $exception) {

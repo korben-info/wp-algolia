@@ -261,7 +261,7 @@ abstract class Algolia_Index
 
         $items = $this->get_items($page, $batch_size);
 
-        $records = array();
+        $records = [];
         foreach ($items as $item) {
             if (! $this->should_index($item)) {
                 $this->delete_item($item);
@@ -420,7 +420,7 @@ abstract class Algolia_Index
 
     public function get_default_autocomplete_config()
     {
-        return array(
+        return [
             'index_id'        => $this->get_id(),
             'index_name'      => $this->get_name(),
             'label'           => $this->get_admin_name(),
@@ -428,7 +428,7 @@ abstract class Algolia_Index
             'position'        => 10,
             'max_suggestions' => 5,
             'tmpl_suggestion' => 'autocomplete-post-suggestion',
-        );
+        ];
     }
 
     /**
@@ -438,19 +438,19 @@ abstract class Algolia_Index
     {
         $replicas = $this->get_replicas();
 
-        $items = array();
+        $items = [];
         foreach ($replicas as $replica) {
-            $items[] = array(
+            $items[] = [
                 'name' => $replica->get_replica_index_name($this),
-            );
+            ];
         }
 
-        return array(
+        return [
             'name'     => $this->get_name(),
             'id'       => $this->get_id(),
             'enabled'  => $this->enabled,
             'replicas' => $items,
-        );
+        ];
     }
 
     /**
@@ -458,10 +458,10 @@ abstract class Algolia_Index
      */
     public function get_replicas()
     {
-        $replicas = (array) apply_filters('algolia_index_replicas', array(), $this);
+        $replicas = (array) apply_filters('algolia_index_replicas', [], $this);
         $replicas = (array) apply_filters('algolia_' . $this->get_id() . '_index_replicas', $replicas, $this);
 
-        $filtered = array();
+        $filtered = [];
         // Filter out invalid inputs.
         foreach ($replicas as $replica) {
             if (! $replica instanceof Algolia_Index_Replica) {
@@ -481,16 +481,16 @@ abstract class Algolia_Index
             return;
         }
 
-        $replica_index_names = array();
+        $replica_index_names = [];
         foreach ($replicas as $replica) {
             /** @var Algolia_Index_Replica $replica */
             $replica_index_names[] = $replica->get_replica_index_name($this);
         }
 
         $this->get_index()->setSettings(
-            array(
+            [
                 'replicas' => $replica_index_names,
-            ),
+            ],
             false
         );
 
