@@ -188,7 +188,20 @@ abstract class Algolia_Posts_Index_Abstract extends Algolia_Index
      * @param WP_Post $post
      * @param array   $records
      */
-    abstract protected function update_post_records(WP_Post $post, array $records);
+    protected function update_post_records(WP_Post $post, array $records)
+    {
+        // If there are no records, parent `update_records` will take care of the deletion.
+        // In case of posts, we ALWAYS need to delete existing records.
+        if (! empty($records)) {
+            $this->delete_item($post);
+        }
+
+        parent::update_records($post, $records);
+
+        // Keep track of the new record count for future updates relying on the objectID's naming convention .
+        $new_records_count = count($records);
+        $this->set_post_records_count($post, $new_records_count);
+    }
 
     /**
      * @param mixed $item

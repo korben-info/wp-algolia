@@ -126,17 +126,7 @@ final class Algolia_Posts_Index extends Algolia_Posts_Index_Abstract
      */
     protected function update_post_records(WP_Post $post, array $records)
     {
-        // If there are no records, parent `update_records` will take care of the deletion.
-        // In case of posts, we ALWAYS need to delete existing records.
-        if (! empty($records)) {
-            $this->delete_item($post);
-        }
-
-        parent::update_records($post, $records);
-
-        // Keep track of the new record count for future updates relying on the objectID's naming convention .
-        $new_records_count = count($records);
-        $this->set_post_records_count($post, $new_records_count);
+        parent::update_post_records($post, $records);
 
         do_action('algolia_posts_index_post_updated', $post, $records);
         do_action('algolia_posts_index_post_' . $post->post_type . '_updated', $post, $records);
