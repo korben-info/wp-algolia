@@ -4,7 +4,7 @@
 Plugin Name:       Algolia
 Plugin URI:        https://www.algolia.com/
 Description:       WordPress plugin to use Algolia as a search engine.
-Version:           3.0.1
+Version:           3.0.2
 Author:            Léo Colombaro
 Author URI:        https://colombaro.fr/
 License:           MIT License
