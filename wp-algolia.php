@@ -1,15 +1,15 @@
 <?php
 
 /**
-Plugin Name:       Algolia
-Plugin URI:        https://www.algolia.com/
-Description:       WordPress plugin to use Algolia as a search engine.
-Version:           3.0.2
-Author:            Léo Colombaro
-Author URI:        https://colombaro.fr/
-License:           MIT License
-License URI:       https://opensource.org/licenses/MIT
-*/
+ * Plugin Name:       Algolia
+ * Plugin URI:        https://www.algolia.com/
+ * Description:       WordPress plugin to use Algolia as a search engine.
+ * Version:           3.0.3
+ * Author:            Léo Colombaro
+ * Author URI:        https://colombaro.fr/
+ * License:           MIT License
+ * License URI:       https://opensource.org/licenses/MIT
+ */
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
@@ -19,11 +19,11 @@ if (!class_exists('Algolia_Helper')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-// The Algolia Search plugin version.
+// The Algolia Search plugin version
 define('ALGOLIA_VERSION', '3.0.0');
 
 Algolia_Helper::get_instance();
 
 if (defined('WP_CLI') && WP_CLI) {
-    WP_CLI::add_command('algolia', Algolia_CLI::class);
+    \WP_CLI::add_command('algolia', \Algolia_CLI::class);
 }
