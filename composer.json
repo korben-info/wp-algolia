@@ -1,7 +1,7 @@
 {
   "name": "leocolomb/wp-algolia",
   "type": "wordpress-plugin",
-  "description": "WordPress plugin to use Algolia as a search engine",
+  "description": "A (unofficial) WordPress plugin to use Algolia as a search engine",
   "keywords": [
     "wordpress",
     "algolia",

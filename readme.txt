@@ -9,7 +9,7 @@ Stable tag: trunk
 License: MIT
 License URI: https://github.com/LeoColomb/wp-algolia/blob/master/LICENSE
 
-WordPress plugin to use Algolia as a search engine.
+A (unofficial) WordPress plugin to use Algolia as a search engine.
 
 == Description ==
 

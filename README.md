@@ -1,6 +1,6 @@
 # Algolia for WordPress
 
-> WordPress plugin to use Algolia as a search engine
+> A (unofficial) WordPress plugin to use Algolia as a search engine
 
 [![Build Status](https://travis-ci.com/LeoColomb/wp-algolia.svg?branch=master)](https://travis-ci.com/LeoColomb/wp-algolia)
 [![Packagist](https://img.shields.io/packagist/v/LeoColomb/wp-algolia.svg)](https://packagist.org/packages/LeoColomb/wp-algolia)
