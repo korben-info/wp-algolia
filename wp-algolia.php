@@ -4,7 +4,7 @@
  * Plugin Name:       Algolia
  * Plugin URI:        https://www.algolia.com/
  * Description:       A (unofficial) WordPress plugin to use Algolia as a search engine.
- * Version:           3.0.4
+ * Version:           3.0.5
  * Author:            Léo Colombaro
  * Author URI:        https://colombaro.fr/
  * License:           MIT License
@@ -20,7 +20,7 @@ if (!class_exists('Algolia_Helper')) {
 }
 
 // The Algolia Search plugin version
-define('ALGOLIA_VERSION', '3.0.0');
+define('ALGOLIA_VERSION', '3.0.5');
 
 Algolia_Helper::get_instance();
 
