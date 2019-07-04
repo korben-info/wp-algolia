@@ -224,6 +224,10 @@ class Algolia_Helper
 
         $indices = $this->indices;
 
+        if (empty($indices)) {
+            return [];
+        }
+
         if (isset($args['enabled']) && true === $args['enabled']) {
             $indices = array_filter(
                 $indices,
