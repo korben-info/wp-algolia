@@ -1,5 +1,5 @@
 === Algolia for WordPress ===
-Contributors: algolia, leocolomb
+Contributors: algolia, leocolomb, korben
 Donate link: https://www.patreon.com/LeoColomb
 Tags: search, algolia, relevant search, better search, custom search
 Requires at least: 4.4
@@ -7,7 +7,7 @@ Tested up to: 5.2
 Requires PHP: 5.6
 Stable tag: trunk
 License: MIT
-License URI: https://github.com/LeoColomb/wp-algolia/blob/master/LICENSE
+License URI: https://github.com/korben-info/wp-algolia/blob/master/LICENSE
 
 A (unofficial) WordPress plugin to use Algolia as a search engine.
 
@@ -34,7 +34,7 @@ It also comes with native typo-tolerance and is language-agnostic, so that every
 
 This plugin can be installed with Composer on a Composer-managed WordPress stack.
 ```
-composer require leocolomb/wp-algolia
+composer require korben-info/wp-algolia
 ```
 
 == Frequently Asked Questions ==
@@ -50,7 +50,7 @@ That said, the Instant Search and Autocomplete features require to be supported 
 
 == Changelog ==
 
-[Checkout the complete changelog here](https://github.com/LeoColomb/wp-algolia/releases).
+[Checkout the complete changelog here](https://github.com/korben-info/wp-algolia/releases).
 
 == Upgrade Notice ==
 

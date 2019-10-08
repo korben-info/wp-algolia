@@ -1,5 +1,5 @@
 {
-  "name": "leocolomb/wp-algolia",
+  "name": "korben-info/wp-algolia",
   "type": "wordpress-plugin",
   "description": "A (unofficial) WordPress plugin to use Algolia as a search engine",
   "keywords": [
@@ -7,7 +7,7 @@
     "algolia",
     "search"
   ],
-  "homepage": "https://github.com/LeoColomb/wp-algolia",
+  "homepage": "https://github.com/korben-info/wp-algolia",
   "license": "MIT",
   "require": {
     "php": ">=5.6",
@@ -29,6 +29,6 @@
     ]
   },
   "support": {
-    "issues": "https://github.com/LeoColomb/wp-algolia/issues"
+    "issues": "https://github.com/korben-info/wp-algolia/issues"
   }
 }

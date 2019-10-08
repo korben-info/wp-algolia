@@ -2,8 +2,8 @@
 
 > A (unofficial) WordPress plugin to use Algolia as a search engine
 
-[![Build Status](https://travis-ci.com/LeoColomb/wp-algolia.svg?branch=master)](https://travis-ci.com/LeoColomb/wp-algolia)
-[![Packagist](https://img.shields.io/packagist/v/LeoColomb/wp-algolia.svg)](https://packagist.org/packages/LeoColomb/wp-algolia)
+[![Build Status](https://travis-ci.com/korben-info/wp-algolia.svg?branch=master)](https://travis-ci.com/korben-info/wp-algolia)
+[![Packagist](https://img.shields.io/packagist/v/korben-info/wp-algolia.svg)](https://packagist.org/packages/korben-info/wp-algolia)
 [![WordPress Plugins](https://img.shields.io/wordpress/plugin/v/wp-algolia.svg)](https://wordpress.org/plugins/wp-algolia/)
 
 
@@ -18,7 +18,7 @@ It also comes with native typo-tolerance and is language-agnostic, so that every
 
 * Via [Composer](https://getcomposer.org/) (recommended)
   ```bash
-  composer require leocolomb/wp-algolia
+  composer require korben-info/wp-algolia
   ```
 
 * Via [WordPress Plugins](https://wordpress.org/plugins/wp-algolia/)
@@ -34,4 +34,4 @@ That said, the Instant Search and Autocomplete features require to be supported 
 
 ## License
 
-MIT © [Léo Colombaro](https://colombaro.fr)
+MIT © [Korben](https://korben.info) & [Léo Colombaro](https://colombaro.fr)

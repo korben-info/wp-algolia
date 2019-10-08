@@ -50,7 +50,7 @@ class Algolia_API
         global $wp_version;
 
         $integration_name    = (string) apply_filters('algolia_ua_integration_name', 'Integration');
-        $integration_version = (string) apply_filters('algolia_ua_integration_version', ALGOLIA_VERSION . ' github:LeoColomb/wp-algolia');
+        $integration_version = (string) apply_filters('algolia_ua_integration_version', ALGOLIA_VERSION . ' github:korben-info/wp-algolia');
 
         UserAgent::addCustomUserAgent('WordPress', $wp_version);
         UserAgent::addCustomUserAgent($integration_name, $integration_version);
