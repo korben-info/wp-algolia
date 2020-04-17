@@ -2,7 +2,7 @@
 
 > A (unofficial) WordPress plugin to use Algolia as a search engine
 
-[![Build Status](https://travis-ci.com/korben-info/wp-algolia.svg?branch=master)](https://travis-ci.com/korben-info/wp-algolia)
+[![Test](https://github.com/korben-info/wp-algolia/workflows/Test/badge.svg)](https://github.com/korben-info/wp-algolia/actions?query=workflow%3ATest)
 [![Packagist](https://img.shields.io/packagist/v/korben-info/wp-algolia.svg)](https://packagist.org/packages/korben-info/wp-algolia)
 [![WordPress Plugins](https://img.shields.io/wordpress/plugin/v/wp-algolia.svg)](https://wordpress.org/plugins/wp-algolia/)
 
