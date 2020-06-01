@@ -10,7 +10,7 @@ jobs:
       matrix:
         php_version: [7.2, 7.3]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.2.0
       - name: Use PHP ${{ matrix.php_version }}
         uses: shivammathur/setup-php@1.4.2
         with:
