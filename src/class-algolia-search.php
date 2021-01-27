@@ -123,7 +123,12 @@ class Algolia_Search
      */
     public function found_posts($found_posts, WP_Query $query)
     {
-        return $this->should_filter_query($query) ? $this->nb_hits : $found_posts;
+        if ($this->should_filter_query($query)) {
+            // https://www.algolia.com/doc/api-reference/api-parameters/paginationLimitedTo/
+            return min($this->nb_hits, apply_filters('algolia_max_found_posts', 1000));
+        }
+
+        return $found_posts;
     }
 
     /**
