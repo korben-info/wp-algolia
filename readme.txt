@@ -3,7 +3,7 @@ Contributors: algolia, leocolomb, korben
 Donate link: https://www.patreon.com/LeoColomb
 Tags: search, algolia, relevant search, better search, custom search
 Requires at least: 4.4
-Tested up to: 5.2
+Tested up to: 5.6
 Requires PHP: 5.6
 Stable tag: trunk
 License: MIT
