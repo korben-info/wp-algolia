@@ -133,8 +133,8 @@ class Algolia_Admin_Page
         <?php esc_html_e('Use Algolia in the backend', 'algolia'); ?>
     </label>
     <p class="description" id="home-description">
-        With this option WordPress search will be powered by Algolia behind the scenes.
-        This will allow your search results to be typo tolerant.
+        With this option WordPress search will be powered by Algolia behind the scenes.<br>
+        This will allow your search results to be typo tolerant.<br>
         <b>This option does not support filtering and displaying instant search results but has the advantage to play nicely with any theme.</b>
     </div>
 </div>
