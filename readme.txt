@@ -2,7 +2,7 @@
 Contributors: algolia, leocolomb, korben
 Donate link: https://www.patreon.com/LeoColomb
 Tags: search, algolia, relevant search, better search, custom search
-Requires at least: 4.4
+Requires at least: 5.2
 Tested up to: 5.8
 Requires PHP: 7.2
 Stable tag: trunk
@@ -22,7 +22,7 @@ It also comes with native typo-tolerance and is language-agnostic, so that every
 = Requirements =
 
 * PHP 7.2+
-* WordPress 4.4+
+* WordPress 5.2+
 
 = Manual =
 
