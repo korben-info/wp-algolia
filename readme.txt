@@ -3,8 +3,8 @@ Contributors: algolia, leocolomb, korben
 Donate link: https://www.patreon.com/LeoColomb
 Tags: search, algolia, relevant search, better search, custom search
 Requires at least: 4.4
-Tested up to: 5.6
-Requires PHP: 5.6
+Tested up to: 5.8
+Requires PHP: 7.2
 Stable tag: trunk
 License: MIT
 License URI: https://github.com/korben-info/wp-algolia/blob/master/LICENSE
@@ -21,7 +21,7 @@ It also comes with native typo-tolerance and is language-agnostic, so that every
 
 = Requirements =
 
-* PHP 5.6+
+* PHP 7.2+
 * WordPress 4.4+
 
 = Manual =
