@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "421abbfb085c8ae74d298a6f259ebfd69897e625"
+                "reference": "42793a97c99a68adfe8e39eadadd970b5196f208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/421abbfb085c8ae74d298a6f259ebfd69897e625",
-                "reference": "421abbfb085c8ae74d298a6f259ebfd69897e625",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/42793a97c99a68adfe8e39eadadd970b5196f208",
+                "reference": "42793a97c99a68adfe8e39eadadd970b5196f208",
                 "shasum": ""
             },
             "require": {
@@ -76,9 +76,9 @@
             ],
             "support": {
                 "issues": "https://github.com/algolia/algoliasearch-client-php/issues",
-                "source": "https://github.com/algolia/algoliasearch-client-php/tree/3.0.2"
+                "source": "https://github.com/algolia/algoliasearch-client-php/tree/3.1.0"
             },
-            "time": "2021-05-04T09:15:35+00:00"
+            "time": "2021-08-31T14:17:19+00:00"
         },
         {
             "name": "composer/installers",
