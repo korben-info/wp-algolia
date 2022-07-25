@@ -12,7 +12,6 @@
   "require": {
     "php": ">=7.2",
     "algolia/algoliasearch-client-php": "^3.0",
-    "composer/installers": "^2.0",
     "guzzlehttp/guzzle": "^7.2"
   },
   "require-dev": {
