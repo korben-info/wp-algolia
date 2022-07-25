@@ -6,7 +6,6 @@ use Algolia\AlgoliaSearch\Support\UserAgent;
 
 class Algolia_API
 {
-
     /**
      * @var Client
      */

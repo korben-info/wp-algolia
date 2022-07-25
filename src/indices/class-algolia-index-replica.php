@@ -2,7 +2,6 @@
 
 class Algolia_Index_Replica
 {
-
     const ORDER_ASC  = 'asc';
     const ORDER_DESC = 'desc';
 

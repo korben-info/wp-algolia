@@ -2,7 +2,6 @@
 
 class Algolia_Helper
 {
-
     const NAME = 'algolia';
 
     /**

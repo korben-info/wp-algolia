@@ -25,6 +25,9 @@
   "scripts": {
     "lint": [
       "phpcs"
+    ],
+    "format": [
+      "phpcbf"
     ]
   },
   "config": {

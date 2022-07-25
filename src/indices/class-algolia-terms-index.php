@@ -2,7 +2,6 @@
 
 final class Algolia_Terms_Index extends Algolia_Index
 {
-
     /**
      * @var string
      */

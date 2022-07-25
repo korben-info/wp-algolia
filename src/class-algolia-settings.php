@@ -2,7 +2,6 @@
 
 class Algolia_Settings
 {
-
     /**
      * Algolia_Settings constructor.
      */

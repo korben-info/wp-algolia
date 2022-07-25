@@ -2,7 +2,6 @@
 
 class Algolia_Search
 {
-
     /**
      * @var int
      */

@@ -6,7 +6,6 @@ use Algolia\AlgoliaSearch\SearchIndex as Index;
 
 abstract class Algolia_Index
 {
-
     /**
      * @var Client
      */

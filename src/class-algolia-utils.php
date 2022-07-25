@@ -2,7 +2,6 @@
 
 class Algolia_Utils
 {
-
     /**
      * Retrieve term parents with separator.
      *

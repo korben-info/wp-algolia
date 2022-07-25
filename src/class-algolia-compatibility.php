@@ -2,7 +2,6 @@
 
 class Algolia_Compatibility
 {
-
     private $current_language;
 
     public function __construct()
