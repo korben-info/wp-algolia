@@ -27,6 +27,11 @@
       "phpcs"
     ]
   },
+  "config": {
+    "platform": {
+      "php": "7.4.6"
+    }
+  },
   "support": {
     "issues": "https://github.com/korben-info/wp-algolia/issues"
   }
